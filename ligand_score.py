@@ -98,10 +98,10 @@ if __name__ == "__main__":
         ligand_structure,
         z_grid,
         raw_xmap_grid,
-    )[0]
+    )
     print(score)
 
     # Write score
     print(f'Writing score...')
     with open(args.out_path, 'w') as f:
-        f.write(str(score))
+        f.write(str(score[0][0]))
