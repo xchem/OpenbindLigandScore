@@ -23,14 +23,14 @@ def get_ligand_structure(structure, ligand_id):
 
     for model_name, chain_name in chains_to_delete:
         del new_structure[int(model_name)-1][chain_name]
-        
+
     for model in structure:
         new_model = gemmi.Model()
         for chain in model:
             if chain.name == ligand_id[0]:
                 new_chain = gemmi.Chain(chain.name)
                 for res in chain:
-                    if res.name == ligand_id[1]:
+                    if str(res.seqid.num) == ligand_id[1]:
                         new_chain.add_residue(res)
                 new_model.add_chain(new_chain)
         new_structure.add_model(new_model)
