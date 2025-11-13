@@ -71,7 +71,7 @@ if __name__ == "__main__":
 
     # Get the structure, pulling out everything but the ligand
     ligand_id = args.ligand_id.split('/')
-    structure = gemmi.read_strucutre(args.structure_path)
+    structure = gemmi.read_structure(args.structure_path)
     ligand_structure = get_ligand_structure(structure, ligand_id)
 
     # Get the z grid
