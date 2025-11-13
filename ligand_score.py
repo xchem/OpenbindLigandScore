@@ -25,7 +25,7 @@ def get_ligand_structure(structure, ligand_id):
         del new_structure[int(model_name)-1][chain_name]
 
     for model in structure:
-        new_model = gemmi.Model()
+        new_model = gemmi.Model(1)
         for chain in model:
             if chain.name == ligand_id[0]:
                 new_chain = gemmi.Chain(chain.name)
@@ -67,17 +67,21 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Get the event and build scores
+    print(f'Getting scoring model...')
     _, score_build, _, _ = get_scoring_models(args)
 
     # Get the structure, pulling out everything but the ligand
+    print(f'Getting ligand structure...')
     ligand_id = args.ligand_id.split('/')
     structure = gemmi.read_structure(args.structure_path)
     ligand_structure = get_ligand_structure(structure, ligand_id)
 
     # Get the z grid
+    print(f'Geting zmap...')
     z_grid = read_xmap(args.zmap)
 
     # Get the xmap grid
+    print(f'Getting xmap...')
     raw_xmap_grid = read_mtz(
         args.xmap_path, 
         args.f, 
@@ -86,6 +90,7 @@ if __name__ == "__main__":
         )
 
     # Score
+    print(f'Scoring...')
     score, arr = score_build(
         ligand_structure,
         z_grid,
@@ -94,5 +99,6 @@ if __name__ == "__main__":
     print(score)
 
     # Write score
+    print(f'Writing score...')
     with open(args.out_path, 'w') as f:
         f.write(str(score))
