@@ -48,9 +48,6 @@ def read_mtz(path, f, phi, template):
     grid_np = np.array(grid, copy=False)
     z_np = np.array(template, copy=False)
 
-    print(grid_np.shape)
-    print(z_np.shape)
-
     grid_np[z_np == 0.0] = 0.0
 
     return grid
