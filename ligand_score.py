@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
     # Get the z grid
     print(f'Geting zmap...')
-    z_grid = read_xmap(args.zmap)
+    z_grid = read_xmap(args.zmap_path)
 
     # Get the xmap grid
     print(f'Getting xmap...')
