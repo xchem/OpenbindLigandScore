@@ -98,7 +98,7 @@ if __name__ == "__main__":
         ligand_structure,
         z_grid,
         raw_xmap_grid,
-    )[0][0]
+    )[0]
     print(score)
 
     # Write score
