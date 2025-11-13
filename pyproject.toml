@@ -12,7 +12,7 @@ classifiers = [
 ]
 description = "Tools to generate data suitable for loading into Fragalysis"
 dependencies = [
-    'pandda_gemmi@git+https://github.com/xchem/PanDDA2.git'
+    'pandda-2-gemmi@git+https://github.com/xchem/PanDDA2.git'
 ] 
 dynamic = ["version"]
 license.file = "LICENSE"
