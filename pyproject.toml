@@ -12,8 +12,6 @@ classifiers = [
 ]
 description = "Tools to generate data suitable for loading into Fragalysis"
 dependencies = [
-    'numpy',
-    'gemmi',
     'pandda_gemmi@git+https://github.com/xchem/PanDDA2.git'
 ] 
 dynamic = ["version"]
