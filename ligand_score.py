@@ -42,7 +42,7 @@ def read_mtz(path, f, phi, template):
     grid = mtz.transform_f_phi_to_map(
         f,  
         phi, 
-        sample_rate=mtz.resolution_high()/0.4999,
+        exact_size=[template.nu, template.nv, template.nw]
         )
 
     grid_np = np.array(grid, copy=False)
