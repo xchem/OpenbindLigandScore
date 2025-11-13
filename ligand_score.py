@@ -55,9 +55,11 @@ def read_mtz(path, f, phi, template):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument('--structure_path',)
     parser.add_argument('--ligand_id')
     parser.add_argument('--zmap_path')
     parser.add_argument('--xmap_path',)
+    parser.add_argument('--out_path',)    
     parser.add_argument('--f', default='FWT')
     parser.add_argument('--phi', default='PHWT')
     parser.add_argument('--use_ligand_data', default=True)
@@ -89,3 +91,8 @@ if __name__ == "__main__":
         z_grid,
         raw_xmap_grid,
     )
+    print(score)
+
+    # Write score
+    with open(args.out_path, 'w') as f:
+        f.write(str(score))
