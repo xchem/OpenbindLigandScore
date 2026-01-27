@@ -58,7 +58,7 @@ if __name__ == "__main__":
     parser.add_argument('--structure_path',)
     parser.add_argument('--ligand_id')
     parser.add_argument('--zmap_path')
-    parser.add_argument('--xmap_path',)
+    parser.add_argument('--mtz_path',)
     parser.add_argument('--out_path',)    
     parser.add_argument('--f', default='FWT')
     parser.add_argument('--phi', default='PHWT')
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     # Get the xmap grid
     print(f'Getting xmap...')
     raw_xmap_grid = read_mtz(
-        args.xmap_path, 
+        args.mtz_path, 
         args.f, 
         args.phi, 
         z_grid,
