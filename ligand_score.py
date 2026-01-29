@@ -75,6 +75,10 @@ if __name__ == "__main__":
     ligand_id = args.ligand_id.split('/')
     structure = gemmi.read_structure(args.structure_path)
     ligand_structure = get_ligand_structure(structure, ligand_id)
+    print(ligand_structure)
+    print(ligand_structure[0])
+    print([chain.name for chain in ligand_structure[0]])
+    print([res.seqid for chain in ligand_structure[0] for res in chain])
 
     # Get the z grid
     print(f'Geting zmap...')
