@@ -73,6 +73,7 @@ if __name__ == "__main__":
     # Get the structure, pulling out everything but the ligand
     print(f'Getting ligand structure...')
     ligand_id = args.ligand_id.split('/')
+    print(ligand_id)
     structure = gemmi.read_structure(args.structure_path)
     ligand_structure = get_ligand_structure(structure, ligand_id)
     print(ligand_structure)
